@@ -1,0 +1,70 @@
+# Example 1
+Q: Starting from the function $\arcsin(x)$ to generate a new indefinite integration problem.
+
+A: 1.  **Initial Function:** Let $f(x) = \arcsin(x)$. Its derivative is straightforward:
+    $$\frac{d}{dx}[\arcsin(x)] = \frac{1}{\sqrt{1-x^2}}$$
+
+2.  **Modification:** We multiply by $\sqrt{1-x^2}$ to create a product. Let the new function be $g(x) = \arcsin(x)\sqrt{1-x^2}$. Applying the **product rule**, $(uv)' = u'v + uv'$, gives:
+    $$\frac{d}{dx}[g(x)] = \left(\frac{d}{dx}[\arcsin(x)]\right)\sqrt{1-x^2} + \arcsin(x)\left(\frac{d}{dx}[\sqrt{1-x^2}]\right)$$
+    $$\frac{d}{dx}[g(x)] = \left(\frac{1}{\sqrt{1-x^2}}\right)\sqrt{1-x^2} + \arcsin(x)\left(\frac{-x}{\sqrt{1-x^2}}\right)$$
+    The first term simplifies, yielding:
+    $$\frac{d}{dx}[g(x)] = 1 - \frac{x\arcsin(x)}{\sqrt{1-x^2}}$$
+
+3.  **Term Cancellation:** The derivative now contains a simple constant term, '1'. We can remove this by subtracting $x$ from our function $g(x)$. Let the final function be $h(x) = g(x) - x = \arcsin(x)\sqrt{1-x^2} - x$.
+    $$\frac{d}{dx}[h(x)] = \frac{d}{dx}[g(x)] - \frac{d}{dx}[x] = \left(1 - \frac{x\arcsin(x)}{\sqrt{1-x^2}}\right) - 1$$
+    $$\frac{d}{dx}[h(x)] = -\frac{x\arcsin(x)}{\sqrt{1-x^2}}$$
+    The resulting derivative is a nontrivial integrand whose origin is well hidden.
+
+**Results:**
+With multiplication explicitly shown using the `\cdot` sign, our final original function $f$ is \original{\arcsin(x) \cdot \sqrt{1-x^2} - x}, and our final integrand is \integrand{-\frac{x \cdot \arcsin(x)}{\sqrt{1-x^2}}} with respect to \variable{x}.
+
+
+# Example 2
+Q: Starting from the functions $\sqrt{x}$ and $\sin(\sqrt{x})$ to generate a new indefinite integration problem.
+
+A: 1.  **Initial Functions:** We start with two separate functions. Their individual derivatives are relatively simple.
+    * For $f(x) = \sqrt{x}$, the derivative is:
+        $$\frac{d}{dx}[\sqrt{x}] = \frac{1}{2\sqrt{x}}$$
+    * For $g(x) = \sin(\sqrt{x})$, the **chain rule** gives:
+        $$\frac{d}{dx}[\sin(\sqrt{x})] = \cos(\sqrt{x}) \cdot \frac{1}{2\sqrt{x}} = \frac{\cos(\sqrt{x})}{2\sqrt{x}}$$
+    Both of these can be integrated back without too much difficulty.
+
+2.  **Combination:** Let's begin with the product $h(x) = 2\sqrt{x}\sin(\sqrt{x})$. The coefficient '2' is chosen to prevent fractions in the derivative. Using the **product rule**, $(uv)' = u'v + uv'$:
+    $$\frac{d}{dx}[h(x)] = \left(\frac{d}{dx}[2\sqrt{x}]\right)\sin(\sqrt{x}) + 2\sqrt{x}\left(\frac{d}{dx}[\sin(\sqrt{x})]\right)$$   $$\frac{d}{dx}[h(x)] = \left(\frac{1}{\sqrt{x}}\right)\sin(\sqrt{x}) + 2\sqrt{x}\left(\cos(\sqrt{x}) \cdot \frac{1}{2\sqrt{x}}\right)$$
+    The $\sqrt{x}$ factors in the second term cancel, leaving:
+    $$\frac{d}{dx}[h(x)] = \frac{\sin(\sqrt{x})}{\sqrt{x}} + \cos(\sqrt{x})$$
+
+3.  **Term Cancellation:** The derivative has two distinct terms. We can eliminate the first term, $\frac{\sin(\sqrt{x})}{\sqrt{x}}$, by adding a function whose derivative is its exact negative. The derivative of $2\cos(\sqrt{x})$ is precisely $-\frac{\sin(\sqrt{x})}{\sqrt{x}}$.
+    * Let the final function be $F(x) = h(x) + 2\cos(\sqrt{x}) = 2\sqrt{x}\sin(\sqrt{x}) + 2\cos(\sqrt{x})$.
+    * Differentiating term by term:
+        $$\frac{d}{dx}[F(x)] = \frac{d}{dx}[h(x)] + \frac{d}{dx}[2\cos(\sqrt{x})]$$       $$\frac{d}{dx}[F(x)] = \left(\frac{\sin(\sqrt{x})}{\sqrt{x}} + \cos(\sqrt{x})\right) + \left(-\frac{\sin(\sqrt{x})}{\sqrt{x}}\right)$$       $$\frac{d}{dx}[F(x)] = \cos(\sqrt{x})$$
+
+**Results:**
+With multiplication explicitly shown using the `\cdot` sign, our final original function $f$ is \original{2 \cdot \sqrt{x} \cdot \sin(\sqrt{x}) + 2 \cdot \cos(\sqrt{x})}. Our final integrand is \integrand{\cos(\sqrt{x})} with respect to \variable{x}.
+
+
+# Example 3
+Q: Starting from the function $\ln(x)$ to generate a new indefinite integration problem.
+
+A: 1.  **Initial Function:** For $f(x) = \ln(x)$, the derivative is simply $\frac{d}{dx}[\ln(x)] = \frac{1}{x}$.
+
+2.  **Complex Argument:** We replace the argument $x$ with $\sqrt{x}+1$ to create a problem requiring the **chain rule**.
+    * Let the new function be $g(x) = \ln(\sqrt{x}+1)$.
+    * Using the **chain rule**, $\frac{d}{dx}[\ln(u)] = \frac{u'}{u}$, where $u = \sqrt{x}+1$:
+        $$\frac{d}{dx}[g(x)] = \frac{\frac{d}{dx}[\sqrt{x}+1]}{\sqrt{x}+1} = \frac{\frac{1}{2\sqrt{x}}}{\sqrt{x}+1}$$
+
+3.  **Algebraic Obscurification:** We can now rewrite the derivative in a less transparent form by simplifying the complex fraction.
+    $$\frac{\frac{1}{2\sqrt{x}}}{\sqrt{x}+1} = \frac{1}{2\sqrt{x}(\sqrt{x}+1)} = \frac{1}{2(x+\sqrt{x})}$$
+    This final form is difficult to integrate unless one recognizes the reverse of this process (e.g., via a substitution like $u=\sqrt{x}$).
+
+**Results:**
+With multiplication explicitly shown using the `\cdot` sign, our final original function $f$ is \original{\ln(\sqrt{x}+1)}. Our final integrand is \integrand{\frac{1}{2 \cdot (x+\sqrt{x})}} with respect to \variable{x}.
+
+
+You are an expert calculus problem designer. Your task is to generate a new indefinite integration problem by starting with a known function, differentiating it, and using strategic modifications (like term cancellation or algebraic simplification) to obscure the origin of the final derivative.
+
+**Formatting Rules:**
+* In a "Results" section, present the final answer using the following tags: `\original{...}` for the antiderivative, `\integrand{...}` for the problem, and `\variable{...}` for the integration variable.
+* Show all multiplications explicitly with the `\cdot` symbol.
+
+Now, generate a new problem following these instructions and 3 examples.

@@ -1,0 +1,20 @@
+{
+  "task": "integration",
+  "cold_seeds": "data/integration_cold_sft_seeds.json",
+  "setter_seeds": "data/integration_seeds.jsonl",
+  "sampling_seeds": "data/integration_seeds.jsonl",
+  "sft_gpus": 8,
+  "sft_batch_size": 32,
+  "sft_checkpoint": 50,
+  "setter_steps": 200,
+  "solver_steps": 1600,
+  "samples_per_seed": 64,
+  "evaluation_samples": 64,
+  "benchmarks": ["competition", "qualifier"],
+  "later_rounds": {
+    "expansion_seed": 42,
+    "generation_budget": 95040,
+    "data_seeds": [487405129, 1512763503],
+    "generation_seeds": [1249535431, 943290773]
+  }
+}

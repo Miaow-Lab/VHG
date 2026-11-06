@@ -1,0 +1,29 @@
+# Python caches and build artifacts
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+build/
+dist/
+
+# Local environments and credentials
+.venv/
+venv/
+.env
+.env.*
+!.env.example
+
+# Generated data, logs, and model checkpoints
+outputs/
+runs/
+logs/
+wandb/
+checkpoints/
+*.log
+*.jsonl.tmp
+*.parquet
+*.pt
+*.pth
+*.safetensors

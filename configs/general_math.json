@@ -1,0 +1,15 @@
+{
+  "task": "math",
+  "cold_seeds": "data/general_math_cold_sft_seeds.jsonl",
+  "setter_seeds": "data/general_math_seeds.jsonl",
+  "sampling_seeds": "data/general_math_cold_sft_seeds.jsonl",
+  "cold_generation_budget": 3500,
+  "sft_gpus": 4,
+  "sft_batch_size": 16,
+  "sft_checkpoint": 300,
+  "setter_steps": 200,
+  "solver_steps": 700,
+  "samples_per_seed": 8,
+  "evaluation_samples": 16,
+  "benchmarks": ["math", "gsm8k", "amc", "minerva", "olympiad", "aime2024", "aime2025", "aime2026"]
+}

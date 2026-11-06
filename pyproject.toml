@@ -1,0 +1,50 @@
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "vhg"
+version = "0.1.0"
+description = "Verifier-Backed Hard Problem Generation for Mathematical Reasoning."
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "Apache-2.0"}
+authors = [
+  {name = "Yuhang Lai"},
+  {name = "Jiazhan Feng"},
+  {name = "Yee Whye Teh"},
+  {name = "Ning Miao"},
+]
+dependencies = [
+  "antlr4-python3-runtime==4.11.0",
+  "datasets",
+  "fastapi",
+  "httpx",
+  "latex2sympy2==1.5.4",
+  "math-verify==0.9.0",
+  "numpy==1.26.4",
+  "openai",
+  "requests",
+  "sympy==1.14.0",
+  "tqdm",
+  "uvicorn",
+]
+
+[project.optional-dependencies]
+rl = [
+  "ninja",
+  "ray",
+  "torch",
+  "transformers==4.57.1",
+  "verl==0.6.1",
+  "vllm==0.11.0",
+]
+
+[project.scripts]
+vhg = "vhg.pipeline:main"
+
+[project.urls]
+Repository = "https://github.com/Miaow-Lab/VHG"
+
+[tool.setuptools.packages.find]
+include = ["vhg*"]
